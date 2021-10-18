@@ -46,6 +46,8 @@ describe('Binary search tree', () => {
       tree.add(3);
       tree.add(4);
       assert.strictEqual(tree.root().data, 2);
+      assert.strictEqual(tree.root().left, null);
+      assert.strictEqual(tree.root().right.data, 3);
     });
 
     it.optional('find existing values', () => {
@@ -106,18 +108,24 @@ describe('Binary search tree', () => {
       tree.add(31);
       tree.add(54);
       tree.add(1);
-      tree.remove(14);
+      tree.remove(1);
+      tree.remove(6);
+      tree.remove(54);
+     // tree.remove(14);
       tree.remove(8);
-      tree.remove(9);
-      assert.strictEqual(tree.has(14), false);
+     // tree.remove(9);
+      //assert.strictEqual(tree.has(14), false);
       assert.strictEqual(tree.has(8), false);
-      assert.strictEqual(tree.has(9), false);
+      //assert.strictEqual(tree.has(9), false);
       assert.strictEqual(tree.has(2), true);
-      assert.strictEqual(tree.has(6), true);
+      //assert.strictEqual(tree.has(6), true);
+      assert.strictEqual(tree.has(6), false);
       assert.strictEqual(tree.has(128), true);
       assert.strictEqual(tree.has(31), true);
-      assert.strictEqual(tree.has(54), true);
-      assert.strictEqual(tree.has(1), true);
+      //assert.strictEqual(tree.has(54), true);
+      assert.strictEqual(tree.has(54), false);
+      //assert.strictEqual(tree.has(1), true);
+      assert.strictEqual(tree.has(1), false);
     });
 
     it.optional('min works correctly', () => {
